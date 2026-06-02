@@ -3,262 +3,1012 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Vendas de Alta Conversão</title>
+    <title>Dra. Jordane Alves | Nutrição Clínica Integrada</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Configurações Globais e Reset */
+        :root {
+            --color-primary: #2C3A33; /* Verde oliva profundo e sofisticado */
+            --color-secondary: #C2A683; /* Dourado fosco / Champagne premium */
+            --color-accent: #EAE5DC; /* Areia suave para contrastes elegantes */
+            --color-text-dark: #222222;
+            --color-text-light: #666666;
+            --color-bg-light: #FAF9F5; /* Off-white acolhedor */
+            --color-white: #FFFFFF;
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            scroll-behavior: smooth;
         }
 
         body {
-            background-color: #0b0f19;
-            color: #f3f4f6;
-            line-height: 1.6;
+            font-family: var(--font-sans);
+            background-color: var(--color-bg-light);
+            color: var(--color-text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         .container {
-            max-width: 1100px;
+            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* Seção Dobra Principal (Hero Section) */
-        header {
-            background: radial-gradient(circle at top, #1e293b 0%, #0b0f19 100%);
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .headline-tag {
-            background: rgba(34, 197, 94, 0.2);
-            color: #4ade80;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        h1 {
-            font-size: 42px;
-            line-height: 1.2;
-            font-weight: 800;
-            color: #ffffff;
-            max-width: 850px;
-            margin: 0 auto 25px auto;
-        }
-
-        h1 span {
-            color: #22c55e;
-        }
-
-        .subheadline {
-            font-size: 18px;
-            color: #9ca3af;
-            max-width: 650px;
-            margin: 0 auto 40px auto;
-        }
-
-        /* Botão de CTA Estilo Pulsante */
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-            color: white;
+        /* Botão de Alto Padrão */
+        .btn-premium {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-primary);
+            color: var(--color-white);
             text-decoration: none;
-            padding: 18px 45px;
-            font-size: 20px;
-            font-weight: bold;
-            border-radius: 8px;
-            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.4);
-            transition: transform 0.2s, box-shadow 0.2s;
+            padding: 20px 40px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: var(--transition-smooth);
+            box-shadow: 0 12px 24px rgba(44, 58, 51, 0.15);
+            border: 1px solid var(--color-primary);
+            cursor: pointer;
         }
 
-        .cta-button:hover {
+        .btn-premium:hover {
+            background-color: transparent;
+            color: var(--color-primary);
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(34, 197, 94, 0.6);
+            box-shadow: 0 15px 30px rgba(44, 58, 51, 0.1);
         }
 
-        /* Seção de Benefícios/Entrega */
-        .features {
-            padding: 80px 0;
-            background: #111827;
+        .btn-premium svg {
+            margin-right: 12px;
+            fill: currentColor;
+            transition: var(--transition-smooth);
+        }
+
+        .section-tag {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--color-secondary);
+            margin-bottom: 20px;
+            display: block;
         }
 
         .section-title {
-            text-align: center;
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 50px;
-            color: #ffffff;
+            font-family: var(--font-serif);
+            font-size: 46px;
+            font-weight: 300;
+            line-height: 1.2;
+            color: var(--color-primary);
+            margin-bottom: 24px;
         }
 
-        .grid-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--color-text-light);
+            font-weight: 300;
+            max-width: 650px;
+            margin-bottom: 60px;
         }
 
-        .feature-card {
-            background: #1f2937;
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid #374151;
+        section {
+            padding: 120px 0;
+            position: relative;
         }
 
-        .feature-card h3 {
-            font-size: 20px;
-            color: #22c55e;
-            margin-bottom: 15px;
-        }
-
-        /* Seção Dedicada ao Expert (Ajustada para o seu arquivo JPG) */
-        .expert-section {
-            padding: 90px 0;
-            background: #0b0f19;
-        }
-
-        .expert-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: #111827;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid #1e293b;
-        }
-
-        @media (min-width: 768px) {
-            .expert-box {
-                flex-direction: row;
-            }
-        }
-
-        .expert-image-container {
-            flex: 1;
+        /* Header */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            min-height: 380px;
-            background: #1f2937;
+            z-index: 100;
+            padding: 40px 0;
         }
 
-        .expert-image-container img {
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 26px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .crn-badge {
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: var(--color-text-light);
+            font-weight: 400;
+        }
+
+        /* 1. Hero Section */
+        .hero {
+            padding-top: 220px;
+            padding-bottom: 140px;
+            background: linear-gradient(180deg, #F2EFE9 0%, var(--color-bg-light) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-content {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: 64px;
+            font-weight: 300;
+            line-height: 1.15;
+            color: var(--color-primary);
+            margin-bottom: 28px;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            font-family: var(--font-serif);
+        }
+
+        .hero-description {
+            font-size: 17px;
+            color: var(--color-text-light);
+            margin-bottom: 40px;
+            font-weight: 300;
+            max-width: 560px;
+        }
+
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 56px;
+            border-top: 1px solid rgba(194, 166, 131, 0.25);
+            padding-top: 36px;
+        }
+
+        .hero-feat-item {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: var(--color-primary);
+        }
+
+        .hero-feat-item svg {
+            margin-right: 14px;
+            color: var(--color-secondary);
+            flex-shrink: 0;
+        }
+
+        .hero-image-container {
+            position: relative;
+            opacity: 0;
+            transform: scale(0.97);
+            animation: scaleUp 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(44, 58, 51, 0.12);
+            border: 8px solid var(--color-white);
+        }
+
+        .hero-image-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
+            transition: transform 6s ease;
         }
 
-        .expert-content {
-            flex: 1.2;
-            padding: 45px;
+        .hero-image-container:hover img {
+            transform: scale(1.06);
         }
 
-        .expert-tag {
-            color: #22c55e;
+        /* 2. Section: Pain / Identification */
+        .pain {
+            background-color: var(--color-white);
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .pain-card {
+            background-color: var(--color-bg-light);
+            padding: 50px 40px;
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+            border: 1px solid transparent;
+        }
+
+        .pain-card:hover {
+            transform: translateY(-8px);
+            background-color: var(--color-white);
+            border-color: rgba(194, 166, 131, 0.3);
+            box-shadow: 0 30px 50px rgba(44, 58, 51, 0.04);
+        }
+
+        .pain-icon {
+            margin-bottom: 30px;
+            color: var(--color-secondary);
+            display: inline-block;
+        }
+
+        .pain-card-title {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--color-primary);
+            margin-bottom: 18px;
+        }
+
+        .pain-card-text {
             font-size: 14px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            color: var(--color-text-light);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* 3. Section: Method / Solution */
+        .method {
+            background-color: var(--color-bg-light);
+        }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: 0.95fr 1.05fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .method-image {
+            position: relative;
+        }
+
+        .method-image img {
+            width: 100%;
+            border-radius: 2px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.04);
+        }
+
+        .method-image::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: -30px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--color-secondary);
+            z-index: -1;
+        }
+
+        .method-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .method-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .method-step {
+            display: flex;
+            gap: 30px;
+        }
+
+        .method-number {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            color: var(--color-secondary);
+            line-height: 1;
+            font-weight: 300;
+        }
+
+        .method-step-title {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--color-primary);
             margin-bottom: 10px;
+        }
+
+        .method-step-text {
+            font-size: 14px;
+            color: var(--color-text-light);
+            font-weight: 300;
+        }
+
+        /* 4. Section: Authority */
+        .about {
+            background-color: var(--color-white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 440px;
+            border-radius: 2px;
+            box-shadow: 0 30px 60px rgba(44, 58, 51, 0.08);
+            margin-left: auto;
             display: block;
         }
 
-        .expert-content h2 {
-            font-size: 32px;
-            color: #ffffff;
-            margin-bottom: 20px;
+        .about-text p {
+            font-size: 16px;
+            color: var(--color-text-light);
+            margin-bottom: 28px;
+            font-weight: 300;
         }
 
-        .expert-content p {
-            color: #9ca3af;
-            font-size: 16px;
-            margin-bottom: 20px;
+        .about-signature {
+            font-family: var(--font-serif);
+            font-size: 26px;
+            color: var(--color-primary);
+            margin-top: 48px;
+            font-style: italic;
+        }
+
+        /* 5. Section: Benefits */
+        .benefits {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .benefits .section-title {
+            color: var(--color-white);
+        }
+
+        .benefits .section-subtitle {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .benefit-card {
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            padding: 44px 32px;
+            border-radius: 2px;
+            transition: var(--transition-smooth);
+        }
+
+        .benefit-card:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            transform: translateY(-6px);
+            border-color: var(--color-secondary);
+        }
+
+        .benefit-icon {
+            color: var(--color-secondary);
+            margin-bottom: 28px;
+        }
+
+        .benefit-title {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 14px;
+        }
+
+        .benefit-desc {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* 6. Section: Conversion */
+        .conversion {
+            background-color: var(--color-bg-light);
+            text-align: center;
+            padding: 140px 0;
+        }
+
+        .conversion-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .conversion .section-title {
+            font-size: 54px;
+            margin-bottom: 28px;
+        }
+
+        .conversion-text {
+            font-size: 18px;
+            color: var(--color-text-light);
+            font-weight: 300;
+            margin-bottom: 48px;
+        }
+
+        .conversion-subtext {
+            margin-top: 24px;
+            font-size: 13px;
+            color: var(--color-text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        /* 7. Section: FAQ */
+        .faq {
+            background-color: var(--color-white);
+            padding-bottom: 140px;
+        }
+
+        .faq-max {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(44, 58, 51, 0.08);
+            padding: 28px 0;
+        }
+
+        .faq-trigger {
+            width: 100%;
+            background: none;
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--color-primary);
+            transition: var(--transition-smooth);
+        }
+
+        .faq-icon {
+            color: var(--color-secondary);
+            transition: var(--transition-smooth);
+            flex-shrink: 0;
+            margin-left: 24px;
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .faq-content p {
+            padding-top: 18px;
+            font-size: 15px;
+            color: var(--color-text-light);
+            font-weight: 300;
             line-height: 1.7;
         }
 
-        /* Seção de Fechamento / Rodapé */
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .faq-item.active .faq-question {
+            color: var(--color-secondary);
+        }
+
+        /* 8. Footer */
         footer {
-            background: #030712;
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid #111827;
-            font-size: 14px;
-            color: #6b7280;
+            background-color: #1E2823;
+            color: rgba(255, 255, 255, 0.45);
+            padding: 80px 0 40px 0;
+            font-size: 13px;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding-bottom: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-info {
+            max-width: 400px;
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            color: var(--color-white);
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 14px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-secondary);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        .credit {
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleUp {
+            from {
+                opacity: 0;
+                transform: scale(0.97);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Responsividade Avançada */
+        @media (max-width: 1024px) {
+            .hero-grid, .method-grid, .about-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            .hero {
+                padding-top: 160px;
+                text-align: center;
+            }
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-features {
+                justify-content: center;
+            }
+            .hero-image-container {
+                order: -1;
+            }
+            .method-image::after {
+                display: none;
+            }
+            .about-image img {
+                margin: 0 auto;
+            }
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            .pain-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .section-title {
+                font-size: 38px;
+            }
+            .conversion .section-title {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 0;
+            }
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            .hero-title {
+                font-size: 44px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- BLOCO 1: DOBRA PRINCIPAL (HERO) -->
     <header>
         <div class="container">
-            <span class="headline-tag">Método Validado e Exclusivo</span>
-            <h1>Descubra a Estrutura Exata Para Escalar Seus Resultados Digitais <span>Sem Desperdiçar Verba</span></h1>
-            <p class="subheadline">Pare de testar estratégias complexas que não trazem retorno. Tenha acesso a um ecossistema pronto focado em conversão imediata.</p>
-            <a href="#checkout" class="cta-button">Quero Acessar O Método</a>
+            <div class="nav-wrapper">
+                <a href="#" class="logo">Jordane Alves</a>
+                <span class="crn-badge">CRN9/26620</span>
+            </div>
         </div>
     </header>
 
-    <!-- BLOCO 2: O QUE VOCÊ VAI RECEBER -->
-    <section class="features">
+    <section class="hero">
         <div class="container">
-            <h2 class="section-title">O que você vai dominar dentro do treinamento?</h2>
-            <div class="grid-features">
-                <div class="feature-card">
-                    <h3>01. Estrutura Low Ticket</h3>
-                    <p>Como desenhar ofertas irresistíveis com barreiras mínimas de entrada para construir uma base de compradores qualificados rapidamente.</p>
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="section-tag">Nutrição Clínica Integrada</span>
+                    <h1 class="hero-title">O corpo, a mente e o espírito estão <em>interligados</em>.</h1>
+                    <p class="hero-description">Descubra uma abordagem integrativa de alto padrão. Um acompanhamento desenhado de forma exclusiva para reequilibrar a sua saúde por completo, respeitando a sua individualidade biológica.</p>
+                    
+                    <a href="https://api.whatsapp.com/send/?phone=38999241856&text&type=phone_number&app_absent=0" class="btn-premium">
+                        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.4 0 11.973 0c3.184.001 6.177 1.242 8.426 3.496 2.248 2.253 3.487 5.244 3.484 8.425-.006 6.625-5.347 11.97-11.92 11.97-.215 0-.43-.005-.646-.017l-6.16 1.616-.1-.012zm6.104-3.551l.366.218c1.65.98 3.541 1.498 5.474 1.499 5.518 0 10.01-4.469 10.015-9.972.002-2.666-1.03-5.174-2.907-7.054-1.876-1.88-4.375-2.915-7.042-2.916-5.52 0-10.013 4.47-10.018 9.974-.002 1.996.526 3.946 1.53 5.665l.24.41L2.14 21.82l3.415-.896-.394-.475zm11.758-6.12c-.312-.156-1.848-.912-2.134-1.016-.286-.105-.495-.156-.703.156-.208.312-.806 1.016-.988 1.225-.182.208-.364.234-.676.078-.312-.156-1.318-.486-2.51-1.549-.928-.828-1.554-1.85-1.736-2.162-.182-.312-.02-.48.136-.635.14-.14.312-.364.468-.546.156-.182.208-.312.312-.52.104-.208.052-.39-.026-.546-.078-.156-.703-1.693-.962-2.317-.253-.61-.51-.527-.703-.537-.182-.01-.39-.01-.598-.01-.208 0-.546.078-.832.39-.286.312-1.092 1.067-1.092 2.601 0 1.533 1.118 3.018 1.274 3.226.156.208 2.2 3.359 5.328 4.71.744.321 1.324.513 1.776.657.748.238 1.43.204 1.969.124.6-.09 1.848-.755 2.108-1.446.26-.691.26-1.284.182-1.411-.078-.127-.286-.204-.598-.36z"/></svg>
+                        Agendar Consulta Premium
+                    </a>
+
+                    <div class="hero-features">
+                        <div class="hero-feat-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Análise Clínica Integrada
+                        </div>
+                        <div class="hero-feat-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Cuidado Mente e Espírito
+                        </div>
+                        <div class="hero-feat-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Acompanhamento Altamente Individualizado
+                        </div>
+                        <div class="hero-feat-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Conduta Baseada em Evidências
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <h3>02. Escala de Tráfego</h3>
-                    <p>O direcionamento exato para otimizar suas campanhas de anúncios, aumentando o ROI e blindando suas contas contra bloqueios.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>03. Copywriting Direto</h3>
-                    <p>Gatilhos mentais e roteiros de vendas focados em conversão imediata para páginas, anúncios e sequências de e-mails.</p>
+
+                <div class="hero-image-container">
+                    <div class="hero-image-wrapper">
+                        <img src="expert.jpg" alt="Dra. Jordane Alves">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- BLOCO 3: SEÇÃO DO EXPERT (Busca a imagem 'expert.jpg') -->
-    <section class="expert-section">
+    <section class="pain">
         <div class="container">
-            <div class="expert-box">
+            <span class="section-tag">Desconexão Fisiológica</span>
+            <h2 class="section-title">O erro de tratar o corpo de forma isolada</h2>
+            <p class="section-subtitle">Sua saúde não se resume a calorias e balanças. Quando ignoramos as ramificações emocionais e mentais, os resultados tornam-se efêmeros e exaustivos.</p>
+            
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="pain-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    </div>
+                    <h3 class="pain-card-title">Planos Alimentares Inflexíveis</h3>
+                    <p class="pain-card-text">Dietas restritivas que desconsideram o seu bem-estar emocional, gerando estresse desnecessário e quebrando a constância logo nas primeiras semanas.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.93 4.93l14.14 14.14M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="pain-card-title">Sintomas Sem Respostas</h3>
+                    <p class="pain-card-text">Sentir cansaço constante, indisposição ou ansiedade alimentar crônica sem que ninguém avalie a verdadeira raiz metabólica e integrativa do problema.</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18.36 18.36A9 9 0 0112 21v-3m0-15a9 9 0 016.36 2.64M21 12h-3M3 12h3M6.64 6.64L9 9M15 15l2.36 2.36"></path></svg>
+                    </div>
+                    <h3 class="pain-card-title">Falta de Harmonia Interna</h3>
+                    <p class="pain-card-text">Nutrir apenas a matéria, deixando de lado a clareza mental e a paz espiritual necessárias para sustentar um estilo de vida verdadeiramente saudável.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="method">
+        <div class="container">
+            <div class="method-grid">
+                <div class="method-image">
+                    <img src="consulta.jpg" alt="Consulta de Nutrição Integrada">
+                </div>
+                <div>
+                    <span class="section-tag">A Metodologia</span>
+                    <h2 class="section-title">A sinergia perfeita para a sua evolução</h2>
+                    <p class="section-subtitle" style="margin-bottom: 36px;">Desenvolvemos um ecossistema terapêutico onde cada pilar da sua vida caminha em total harmonia, alcançando metas reais sem sacrifícios cegos.</p>
+                    
+                    <div class="method-steps">
+                        <div class="method-step">
+                            <div class="method-number">01</div>
+                            <div>
+                                <h3 class="method-step-title">Mapeamento Clínico e Integrativo</h3>
+                                <p class="method-step-text">Avaliamos detalhadamente seus biomarcadores, exames de sangue e anamnese completa para decifrar as exatas necessidades do seu organismo.</p>
+                            </div>
+                        </div>
+
+                        <div class="method-step">
+                            <div class="method-number">02</div>
+                            <div>
+                                <h3 class="method-step-title">Harmonização da Rotina</h3>
+                                <p class="method-step-text">Seu plano alimentar é estruturado para nutrir o físico ao mesmo tempo que acalma a mente, encaixando-se perfeitamente em suas obrigações diárias.</p>
+                            </div>
+                        </div>
+
+                        <div class="method-step">
+                            <div class="method-number">03</div>
+                            <div>
+                                <h3 class="method-step-title">Suporte Contínuo e Premium</h3>
+                                <p class="method-step-text">Acompanhamento atento e refinado, garantindo respostas rápidas, ajustes precisos e o direcionamento necessário em cada etapa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <span class="section-tag">A Profissional</span>
+                    <h2 class="section-title">Dra. Jordane Alves</h2>
+                    <p>Com uma conduta pautada pelo respeito profundo à individualidade e excelência clínica, atuo sob a premissa essencial de que o corpo, a mente e o espírito estão intrinsecamente interligados.</p>
+                    <p>Meu trabalho na Nutrição Clínica Integrada busca ir além das prescrições convencionais e superficiais. O foco central reside em compreender minuciosamente o ecossistema interno de cada paciente, identificando desequilíbrios para guiar um processo genuíno de cura, vitalidade e longevidade.</p>
+                    <p>Ofereço um atendimento acolhedor, sofisticado e estritamente ético, proporcionando as ferramentas ideais para que você recupere o controle absoluto da sua saúde e viva em perfeita simetria.</p>
+                    <div class="about-signature">Dra. Jordane Alves — CRN9/26620</div>
+                </div>
+                <div class="about-image">
+                    <img src="expert.jpg" alt="Dra. Jordane Alves em seu consultório">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="container">
+            <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+                <span class="section-tag">Entrega Premium</span>
+                <h2 class="section-title">A estrutura do seu acompanhamento</h2>
+                <p class="section-subtitle">Sua experiência em consulta engloba o que há de mais avançado em termos de cuidado e precisão nutricional.</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                    </div>
+                    <h3 class="benefit-title">Conduta Integrada</h3>
+                    <p class="benefit-desc">Planejamento focado em alinhar sua bioquímica física com seu bem-estar mental.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    </div>
+                    <h3 class="benefit-title">Suporte Exclusivo</h3>
+                    <p class="benefit-desc">Contato direto para orientações e dúvidas pontuais ao longo de todo o processo.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <h3 class="benefit-title">Ajustes Dinâmicos</h3>
+                    <p class="benefit-desc">Estratégias flexíveis que mudam de acordo com as respostas exclusivas do seu corpo.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <h3 class="benefit-title">Equilíbrio Sustentável</h3>
+                    <p class="benefit-desc">Resultados reais focados na verdadeira longevidade, sem restrições extremas irracionais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="conversion">
+        <div class="container">
+            <div class="conversion-wrapper">
+                <span class="section-tag">Agendamento de Consultas</span>
+                <h2 class="section-title">Inicie o resgate da sua vitalidade integral</h2>
+                <p class="conversion-text">Os atendimentos são estruturados com tempo generoso e dedicação total para manter o padrão premium de personalização. Garanta o seu espaço na agenda clicando abaixo.</p>
                 
-                <!-- Lado da Imagem -->
-                <div class="expert-image-container">
-                    <!-- O arquivo no GitHub precisa se chamar rigorosamente expert.jpg -->
-                    <img src="expert.jpg" alt="Foto Oficial do Expert">
+                <a href="https://api.whatsapp.com/send/?phone=38999241856&text&type=phone_number&app_absent=0" class="btn-premium">
+                    <svg width="18" height="18" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.4 0 11.973 0c3.184.001 6.177 1.242 8.426 3.496 2.248 2.253 3.487 5.244 3.484 8.425-.006 6.625-5.347 11.97-11.92 11.97-.215 0-.43-.005-.646-.017l-6.16 1.616-.1-.012zm6.104-3.551l.366.218c1.65.98 3.541 1.498 5.474 1.499 5.518 0 10.01-4.469 10.015-9.972.002-2.666-1.03-5.174-2.907-7.054-1.876-1.88-4.375-2.915-7.042-2.916-5.52 0-10.013 4.47-10.018 9.974-.002 1.996.526 3.946 1.53 5.665l.24.41L2.14 21.82l3.415-.896-.394-.475zm11.758-6.12c-.312-.156-1.848-.912-2.134-1.016-.286-.105-.495-.156-.703.156-.208.312-.806 1.016-.988 1.225-.182.208-.364.234-.676.078-.312-.156-1.318-.486-2.51-1.549-.928-.828-1.554-1.85-1.736-2.162-.182-.312-.02-.48.136-.635.14-.14.312-.364.468-.546.156-.182.208-.312.312-.52.104-.208.052-.39-.026-.546-.078-.156-.703-1.693-.962-2.317-.253-.61-.51-.527-.703-.537-.182-.01-.39-.01-.598-.01-.208 0-.546.078-.832.39-.286.312-1.092 1.067-1.092 2.601 0 1.533 1.118 3.018 1.274 3.226.156.208 2.2 3.359 5.328 4.71.744.321 1.324.513 1.776.657.748.238 1.43.204 1.969.124.6-.09 1.848-.755 2.108-1.446.26-.691.26-1.284.182-1.411-.078-.127-.286-.204-.598-.36z"/></svg>
+                    Falar Diretamente Conosco via WhatsApp
+                </a>
+                
+                <div class="conversion-subtext">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    Sua privacidade é estritamente preservada.
                 </div>
-
-                <!-- Lado do Texto -->
-                <div class="expert-content">
-                    <span class="expert-tag">Por Trás do Método</span>
-                    <h2>Quem vai te guiar nessa jornada?</h2>
-                    <p>
-                        Estrategista focado em marketing de resposta direta, especializado na criação de funis de vendas de alta conversão e automações voltadas para o crescimento acelerado de infoprodutos.
-                    </p>
-                    <p>
-                        Depois de estruturar dezenas de campanhas de sucesso e validar modelos de escala previsíveis, desenvolveu este ecossistema para entregar o caminho mais curto entre o clique do anúncio e o dinheiro no caixa.
-                    </p>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- BLOCO 4: RODAPÉ -->
+    <section class="faq">
+        <div class="container">
+            <div class="faq-max">
+                <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+                    <span class="section-tag">Esclarecimentos</span>
+                    <h2 class="section-title">Perguntas Frequentes</h2>
+                    <p class="section-subtitle">Entenda em detalhes os pilares que regem a conduta do consultório.</p>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        <span class="faq-question">O que significa Nutrição Clínica Integrada?</span>
+                        <span class="faq-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                    </button>
+                    <div class="faq-content">
+                        <p>É um modelo de atendimento que enxerga o paciente como um todo indissociável. Analisamos não apenas as metas estéticas ou físicas, mas também a saúde mental, os níveis de estresse e o equilíbrio metabólico geral, entendendo que o bem-estar físico depende diretamente de uma mente saudável.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        <span class="faq-question">Vou receber uma lista fixa de proibições?</span>
+                        <span class="faq-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                    </button>
+                    <div class="faq-content">
+                        <p>Absolutamente não. Restrições extremas sem critério técnico apenas geram frustração. Nossa conduta desenvolve estratégias inteligentes de substituição e equilíbrio alimentar adaptadas ao seu cotidiano real.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        <span class="faq-question">Como funciona a dinâmica do agendamento?</span>
+                        <span class="faq-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                    </button>
+                    <div class="faq-content">
+                        <p>Ao clicar nos links de conversão, você iniciará um diálogo exclusivo e reservado diretamente no WhatsApp. Nossa equipe apresentará os horários e formatos disponíveis para a sua comodidade.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        <span class="faq-question">O acompanhamento atende rotinas profissionais intensas?</span>
+                        <span class="faq-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                    </button>
+                    <div class="faq-content">
+                        <p>Sim. A metodologia foi desenvolvida exatamente para se moldar a rotinas complexas, oferecendo praticidade nas refeições, organização prévia e soluções eficientes para quem viaja ou realiza refeições corporativas com frequência.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
-            <p>&copy; 2026 Todos os direitos reservados. Este site não faz parte do Facebook ou da Meta Platforms, Inc.</p>
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <a href="#" class="footer-logo">Dra. Jordane Alves</a>
+                    <p>Atendimento focado na integração biológica total para quem busca alta performance física, clareza mental e paz interior.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Início</a>
+                    <a href="https://api.whatsapp.com/send/?phone=38999241856&text&type=phone_number&app_absent=0">Consulta</a>
+                    <a href="https://api.whatsapp.com/send/?phone=38999241856&text&type=phone_number&app_absent=0">Contato</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Dra. Jordane Alves. Todos os direitos reservados. CRN9/26620</p>
+                <p class="credit">Feito por DORYAN</p>
+            </div>
         </div>
     </footer>
 
+    <script>
+        // FAQ Accordion Logic
+        document.querySelectorAll('.faq-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const parent = trigger.parentElement;
+                const content = trigger.nextElementSibling;
+                
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== parent && item.classList.contains('active')) {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-content').style.maxHeight = '0';
+                    }
+                });
+
+                if (parent.classList.contains('active')) {
+                    parent.classList.remove('active');
+                    content.style.maxHeight = '0';
+                } else {
+                    parent.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
