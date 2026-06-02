@@ -1,1 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Vendas de Alta Conversão</title>
+    <style>
+        /* Configurações Globais e Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
 
+        body {
+            background-color: #0b0f19;
+            color: #f3f4f6;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Seção Dobra Principal (Hero Section) */
+        header {
+            background: radial-gradient(circle at top, #1e293b 0%, #0b0f19 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .headline-tag {
+            background: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            font-weight: 800;
+            color: #ffffff;
+            max-width: 850px;
+            margin: 0 auto 25px auto;
+        }
+
+        h1 span {
+            color: #22c55e;
+        }
+
+        .subheadline {
+            font-size: 18px;
+            color: #9ca3af;
+            max-width: 650px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* Botão de CTA Estilo Pulsante */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+            text-decoration: none;
+            padding: 18px 45px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(34, 197, 94, 0.6);
+        }
+
+        /* Seção de Benefícios/Entrega */
+        .features {
+            padding: 80px 0;
+            background: #111827;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: #ffffff;
+        }
+
+        .grid-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: #1f2937;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #374151;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            color: #22c55e;
+            margin-bottom: 15px;
+        }
+
+        /* Seção Dedicada ao Expert (Ajustada para o seu arquivo JPG) */
+        .expert-section {
+            padding: 90px 0;
+            background: #0b0f19;
+        }
+
+        .expert-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #111827;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #1e293b;
+        }
+
+        @media (min-width: 768px) {
+            .expert-box {
+                flex-direction: row;
+            }
+        }
+
+        .expert-image-container {
+            flex: 1;
+            width: 100%;
+            min-height: 380px;
+            background: #1f2937;
+        }
+
+        .expert-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .expert-content {
+            flex: 1.2;
+            padding: 45px;
+        }
+
+        .expert-tag {
+            color: #22c55e;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .expert-content h2 {
+            font-size: 32px;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .expert-content p {
+            color: #9ca3af;
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        /* Seção de Fechamento / Rodapé */
+        footer {
+            background: #030712;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #111827;
+            font-size: 14px;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BLOCO 1: DOBRA PRINCIPAL (HERO) -->
+    <header>
+        <div class="container">
+            <span class="headline-tag">Método Validado e Exclusivo</span>
+            <h1>Descubra a Estrutura Exata Para Escalar Seus Resultados Digitais <span>Sem Desperdiçar Verba</span></h1>
+            <p class="subheadline">Pare de testar estratégias complexas que não trazem retorno. Tenha acesso a um ecossistema pronto focado em conversão imediata.</p>
+            <a href="#checkout" class="cta-button">Quero Acessar O Método</a>
+        </div>
+    </header>
+
+    <!-- BLOCO 2: O QUE VOCÊ VAI RECEBER -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">O que você vai dominar dentro do treinamento?</h2>
+            <div class="grid-features">
+                <div class="feature-card">
+                    <h3>01. Estrutura Low Ticket</h3>
+                    <p>Como desenhar ofertas irresistíveis com barreiras mínimas de entrada para construir uma base de compradores qualificados rapidamente.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>02. Escala de Tráfego</h3>
+                    <p>O direcionamento exato para otimizar suas campanhas de anúncios, aumentando o ROI e blindando suas contas contra bloqueios.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>03. Copywriting Direto</h3>
+                    <p>Gatilhos mentais e roteiros de vendas focados em conversão imediata para páginas, anúncios e sequências de e-mails.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOCO 3: SEÇÃO DO EXPERT (Busca a imagem 'expert.jpg') -->
+    <section class="expert-section">
+        <div class="container">
+            <div class="expert-box">
+                
+                <!-- Lado da Imagem -->
+                <div class="expert-image-container">
+                    <!-- O arquivo no GitHub precisa se chamar rigorosamente expert.jpg -->
+                    <img src="expert.jpg" alt="Foto Oficial do Expert">
+                </div>
+
+                <!-- Lado do Texto -->
+                <div class="expert-content">
+                    <span class="expert-tag">Por Trás do Método</span>
+                    <h2>Quem vai te guiar nessa jornada?</h2>
+                    <p>
+                        Estrategista focado em marketing de resposta direta, especializado na criação de funis de vendas de alta conversão e automações voltadas para o crescimento acelerado de infoprodutos.
+                    </p>
+                    <p>
+                        Depois de estruturar dezenas de campanhas de sucesso e validar modelos de escala previsíveis, desenvolveu este ecossistema para entregar o caminho mais curto entre o clique do anúncio e o dinheiro no caixa.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOCO 4: RODAPÉ -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Todos os direitos reservados. Este site não faz parte do Facebook ou da Meta Platforms, Inc.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
